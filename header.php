@@ -3,18 +3,18 @@ require_once 'common/common_functions.php';
 require_once 'data_handling/HTMLPlaceholder.php';
 
 class NavbarDisplay extends HTMLDisplay {
-    protected function displayIfLogged(): void { ?>
-        <a href="profil.php" class="link"><i class="fa-solid fa-user"></i> <?= $_COOKIE['pseudo'] ?></a>
-        <a href="data_handling/logout_data.php?redirectTo=welcome.php" class="btn">Se déconnecter <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+    protected function displayIfLogged() { ?>
+        <a href="profil.php" class="button thin"><i class="fa-solid fa-user"></i> <?= $_COOKIE['pseudo'] ?></a>
+        <a href="data_handling/logout_data.php?redirectTo=welcome.php" class="button bold">Se déconnecter <i class="fa-solid fa-arrow-right-from-bracket"></i></a>
     <?php }
 
-    protected function displayIfNotLogged(): void { ?>
-        <a href="login.php" class="btn"><i class="fa-solid fa-arrow-right-to-bracket"></i> Se connecter</a>
-        <a href="register.php" class="link"><i class="fa-solid fa-user-plus"></i> S'enregistrer</a>
+    protected function displayIfNotLogged() { ?>
+        <a href="login.php" class="button bold"><i class="fa-solid fa-arrow-right-to-bracket"></i> Se connecter</a>
+        <a href="register.php" class="button thin"><i class="fa-solid fa-user-plus"></i> S'enregistrer</a>
     <?php }
 }
 
-$placeHolder = new HTMLPlaceholder('header', array(new NavbarDisplay('navbar')));
+$placeHolder = new HTMLPlaceholder('header', new NavbarDisplay('navbar'));
 ?>
 
 <header id="top-page">
@@ -33,6 +33,8 @@ $placeHolder = new HTMLPlaceholder('header', array(new NavbarDisplay('navbar')))
     </div>
 
     <hr>
+
+    <button class="user-menu button bold"><i class="fa-solid fa-user"></i></button>
 
     <div class="account">
         <?php $placeHolder->display('navbar'); ?>

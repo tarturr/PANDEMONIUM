@@ -28,13 +28,15 @@ body {
     display: flex;
     justify-content: space-between;
 
+    min-width: 1300px;
+    width: 80vw;
     height: 10vh;
 
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 15% 0 15%;
+    margin: auto;
 
     overflow-y: hidden;
     background-color: white;
@@ -47,7 +49,6 @@ body {
 #top-page a {
     text-decoration: none;
     font: 1.3em 'louis', sans-serif;
-    color: var(--grey);
 }
 
 #top-page .tool-bar {
@@ -55,7 +56,10 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    width: 900px;
+    min-width: 900px;
+    width: 70%;
+
+    color: var(--grey);
 }
 
 #top-page .tool-bar .logo {
@@ -141,27 +145,36 @@ body {
     background-color: var(--dark-main);
 }
 
+#top-page .user-menu {
+    display: none;
+}
+
 #top-page .account {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 
-    width: 400px;
+    min-width: 400px;
+    width: 30%;
 }
 
-#top-page .account a {
+.button {
     padding: 10px 15px;
 
     border-radius: 50px;
 
     color: var(--deep-main);
+    font-family: 'louis', sans-serif;
+    text-decoration: none;
+
+    box-shadow: 0 2px 4px grey;
 }
 
-#top-page .account .btn {
+.button.bold {
     border: solid var(--main) 2px;
 }
 
-#top-page .account .link {
+.button.thin {
     position: relative;
 
     overflow: hidden;
@@ -169,7 +182,7 @@ body {
     background-color: rgba(0, 0, 0, 0.075);
 }
 
-#top-page .account .link::after {
+.button.thin::after {
     content: '';
 
     width: 0;
@@ -185,6 +198,36 @@ body {
     transition: var(--transition);
 }
 
-#top-page .account .link:hover::after {
+.button.thin:hover::after {
     width: 100%;
+}
+
+@media screen and (max-width: 1350px) {
+    #top-page {
+        width: 950px;
+        min-width: 5px;
+        background-color: red;
+    }
+    
+    #top-page .tool-bar .logo .logo-text {
+        display: none;
+    }
+
+    #top-page .user-menu {
+        width: 75px;
+        height: 75px;
+
+        display: block;
+        border: none;
+        align-self: center;
+    }
+
+    #top-page .account {
+        width: 50vw;
+        height: 100vh;
+
+        position: fixed;
+        right: 0;
+        background-color: blue;
+    }
 }
